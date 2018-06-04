@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -95,7 +96,8 @@ func tweet(twttClient *twitter.Client, in <-chan CoinMarketCap) {
 
 }
 
-func main() {
+func startApp(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Starting bot...")
 	// Create httpClient
 	httpClient := http.Client{}
 
@@ -111,11 +113,16 @@ func main() {
 	// create channel to receive the results from Coin Market Cap api call
 	cmcapResChan := make(chan CoinMarketCap)
 
-	// call go routines getCoinMarketResults and twitter that will run at same time as main
+	// call go routines getCoinMarketResults and twitter
 	for {
 		go getCoinMarketCapResults(httpClient, cmcapResChan)
 		go tweet(twttClient, cmcapResChan)
 		time.Sleep(5 * time.Minute)
 	}
+}
 
+func main() {
+	port := os.Getenv("PORT")
+	http.HandleFunc("/", startApp)
+	http.ListenAndServe(":"+port, nil)
 }

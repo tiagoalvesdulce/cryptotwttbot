@@ -1,1 +1,1 @@
-worker: go build && ./cryptotwttbot
+web: appswebcommand
