@@ -1,0 +1,37 @@
+{
+	"ImportPath": "github.com/tiagoalvesdulce/cryptotwttbot",
+	"GoVersion": "go1.10",
+	"GodepVersion": "v80",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/cenkalti/backoff",
+			"Comment": "v2.0.0-2-gf756bc9",
+			"Rev": "f756bc9a37f808627c8c1b26d2d6ea40c468440b"
+		},
+		{
+			"ImportPath": "github.com/dghubble/go-twitter/twitter",
+			"Rev": "093ee2cf4e32ef608cded0ace84d5d82a52da4fa"
+		},
+		{
+			"ImportPath": "github.com/dghubble/oauth1",
+			"Comment": "v0.4.0-18-gc0a405b",
+			"Rev": "c0a405baf29f5ed2616bc1ef6b778532c960aa5b"
+		},
+		{
+			"ImportPath": "github.com/dghubble/sling",
+			"Comment": "v1.1.0-9-gc519674",
+			"Rev": "c519674860ff275e0ceb12caf5d87b31765c4e71"
+		},
+		{
+			"ImportPath": "github.com/google/go-querystring/query",
+			"Rev": "53e6ce116135b80d037921a7fdd5138cf32d7a8a"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "1e491301e022f8f977054da4c2d852decd59571f"
+		}
+	]
+}
